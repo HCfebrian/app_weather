@@ -127,13 +127,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.3"
-  chopper_generator:
-    dependency: "direct dev"
-    description:
-      name: chopper_generator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.5.0"
   cli_util:
     dependency: transitive
     description:
@@ -278,7 +271,7 @@ packages:
     source: hosted
     version: "0.2.1"
   hive_generator:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: hive_generator
       url: "https://pub.dartlang.org"

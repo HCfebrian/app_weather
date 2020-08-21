@@ -2,6 +2,7 @@ import 'package:app_weather/domain/weather_entity.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 
+
 class WeatherModel extends WeatherEntity {
   WeatherModel({
     @required String name,

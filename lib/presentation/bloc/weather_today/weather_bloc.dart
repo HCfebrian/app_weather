@@ -15,7 +15,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
   WeatherBloc({@required this.useCase})
       : assert(useCase != null),
-        super(WeatherInitial());
+        super(Empty());
 
   @override
   Stream<WeatherState> mapEventToState(
@@ -26,6 +26,13 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       final failureOrWeather = await useCase.getWeather(event.cityName);
       yield failureOrWeather.fold(
           (failure) => Error(failure.message), (weather) => WeatherLoaded(weatherEntity: weather));
+    }
+
+    if(event is GetSavedWeather) {
+      yield WeatherLoading();
+      final weatherToday =  useCase.getSavedWeather();
+      print(weatherToday.icon);
+      yield WeatherInitial(weatherToday);
     }
   }
 }

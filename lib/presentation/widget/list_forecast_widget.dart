@@ -19,7 +19,7 @@ class ListForecast extends StatelessWidget {
               itemCount: state.forecastList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
-                  childAspectRatio: (MediaQuery.of(context).size.width / 1.1) /
+                  childAspectRatio: (MediaQuery.of(context).size.width / 1.5) /
                       (MediaQuery.of(context).size.height / 6)),
               itemBuilder: (BuildContext context, int index) {
                 return HorizontalTile(
@@ -34,6 +34,22 @@ class ListForecast extends StatelessWidget {
         }
         if(state is ForecastError){
           return Container();
+        }
+        if(state is ForecastInitial){
+          return Expanded(
+            child: GridView.builder(
+              itemCount: state.listWeather.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 1,
+                  childAspectRatio: (MediaQuery.of(context).size.width / 100) /
+                      (MediaQuery.of(context).size.height / 10)),
+              itemBuilder: (BuildContext context, int index) {
+                return HorizontalTile(
+                  weatherEntity: state.listWeather[index],
+                );
+              },
+            ),
+          ); 
         }
         return Text("Empty");
       },

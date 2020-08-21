@@ -1,3 +1,4 @@
+import 'package:app_weather/data/data_source/local/weather_local_source.dart';
 import 'package:app_weather/data/data_source/remote/remote_datasource_abst.dart';
 import 'package:app_weather/data/repository/repository_impl.dart';
 import 'package:app_weather/domain/weather_entity.dart';
@@ -6,12 +7,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 class MockRemoteData extends Mock implements WeatherRemoteDataAbst{}
+class MockLocalData extends Mock implements LocalSourceAbst{}
 void main(){
   MockRemoteData mockRemoteData;
+  MockLocalData mockLocalData;
   WeatherRepoImpl repoImpl;
   setUp((){
+    mockLocalData = MockLocalData();
     mockRemoteData = MockRemoteData();
-    repoImpl = WeatherRepoImpl(remoteData: mockRemoteData);
+    repoImpl = WeatherRepoImpl(remoteData: mockRemoteData, localSourceAbst: mockLocalData);
   });
 
   final tCityName = "Magelang";

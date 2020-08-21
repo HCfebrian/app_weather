@@ -5,4 +5,6 @@ import 'package:dartz/dartz.dart';
 abstract class WeatherRepoAbst{
   Future<Either<Failure, WeatherEntity>> getWeather(String cityName);
   Future<Either<Failure, List<WeatherEntity>>> getForecast(String cityName);
+  WeatherEntity getSavedWeather();
+  List<WeatherEntity> getSavedForecast();
 }

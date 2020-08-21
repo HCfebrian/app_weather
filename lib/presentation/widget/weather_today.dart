@@ -19,8 +19,13 @@ class WeatherToday extends StatelessWidget {
         if (state is WeatherLoading) {
           return (Text("loading"));
         }
-        if(state is Error){
+        if (state is Error) {
           return Text(state.message.toString());
+        }
+        if (state is WeatherInitial) {
+          return HorizontalTile(
+            weatherEntity: state.weatherEntity,
+          );
         }
         return (Text("Empty"));
       },

@@ -31,8 +31,9 @@ class HorizontalTile extends StatelessWidget {
               margin: EdgeInsets.only(left: 10),
               child: ClipRRect(
                   borderRadius: Radii.appTileRadius8,
-                  child: Icon(Icons.forward)),
-              width: 80,
+                  child: Image.network(
+                      "http://openweathermap.org/img/w/${weatherEntity.icon}.png")),
+              width: 50,
               decoration: BoxDecoration(
                 borderRadius: Radii.appTileRadius8,
                 boxShadow: [
@@ -47,32 +48,138 @@ class HorizontalTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      weatherEntity.name.toUpperCase(),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppStyle.textBlackLight14,
-                      textAlign: TextAlign.left,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          "City",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          weatherEntity.name.toUpperCase(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
                     ),
-                    Text(
-                      weatherEntity.description.toUpperCase(),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppStyle.textBlackSemiBold14,
-                      textAlign: TextAlign.left,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          "Weather",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          weatherEntity.description.toUpperCase(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          "Temperature",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          weatherEntity.temp.toString() + " C",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          "Humidity",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          weatherEntity.humidity.toString(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          "Visibility",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          weatherEntity.visibility.toString() + " M",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          "Wind Speed",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          weatherEntity.windSpeed.toString() + " KM/s",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppStyle.textBlackBold11,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 8,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Expanded(
                           child: Text(
-                            weatherEntity.dt.toIso8601String(),
-                            style: AppStyle.textBlackBold14,
+                            "${weatherEntity.dt.day} - " +
+                                "${weatherEntity.dt.month} - " +
+                                "${weatherEntity.dt.year}  ",
+                            style: AppStyle.textBlackBold11,
                             overflow: TextOverflow.ellipsis,
                           ),
+                        ),
+                        Text(
+                          "${weatherEntity.dt.hour} : 00",
+                          style: AppStyle.textBlackBold11,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     )

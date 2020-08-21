@@ -7,7 +7,15 @@ abstract class ForecastState extends Equatable{
   List<Object> get props => [];
 }
 
-class ForecastInitial extends ForecastState {}
+class Empty extends ForecastState{}
+
+class ForecastInitial extends ForecastState {
+  final List<WeatherEntity> listWeather;
+
+  ForecastInitial(this.listWeather);
+  @override
+  List<Object> get props => [listWeather];
+}
 
 class ForecastLoading extends ForecastState {}
 

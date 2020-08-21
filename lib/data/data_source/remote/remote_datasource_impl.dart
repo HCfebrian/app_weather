@@ -1,14 +1,17 @@
 import 'dart:convert';
 
 import 'package:app_weather/core/error/exception.dart';
+import 'package:app_weather/core/value/static.dart';
 import 'package:app_weather/data/data_source/remote/remote_datasource_abst.dart';
 import 'package:app_weather/data/data_source/remote/services/weather_api_service.dart';
 import 'package:app_weather/data/model/weather_model.dart';
 import 'package:app_weather/domain/weather_entity.dart';
+import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
 class WeatherRemoteDataImpl extends WeatherRemoteDataAbst {
   final WeatherService service;
+
 
   WeatherRemoteDataImpl({@required this.service});
 
@@ -22,7 +25,7 @@ class WeatherRemoteDataImpl extends WeatherRemoteDataAbst {
 
     if (forecast.isSuccessful) {
       final weathers = json.decode(forecast.bodyString);
-      List<WeatherModel> listForecast = [];
+      List<WeatherEntity> listForecast = [];
 
       for (int index = 0; index < 40; index++) {
         listForecast.add(WeatherModel.forecast(weathers, index));
@@ -41,7 +44,10 @@ class WeatherRemoteDataImpl extends WeatherRemoteDataAbst {
     }
 
     if (weather.isSuccessful) {
-      return WeatherModel.today(weather.body);
+      final weatherToday = WeatherModel.today(weather.body);
+//      final weatherBox = Hive.box(Static.WEATHER_BOX);
+//      weatherBox.put(Static.WEATHER_TODAY, weatherToday);
+      return weatherToday;
     }
   }
 }

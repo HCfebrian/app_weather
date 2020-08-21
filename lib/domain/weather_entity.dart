@@ -1,9 +1,26 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 
+part 'weather_entity.g.dart';
+
+@HiveType()
 class WeatherEntity extends Equatable {
-  final String name, icon, description;
-  final  humidity, visibility, windSpeed, temp;
+  @HiveField(0)
+  final String name;
+  @HiveField(1)
+  final String icon;
+  @HiveField(2)
+  final String description;
+  @HiveField(3)
+  final humidity;
+  @HiveField(4)
+  final visibility;
+  @HiveField(5)
+  final windSpeed;
+  @HiveField(6)
+  final temp;
+  @HiveField(7)
   final DateTime dt;
 
   WeatherEntity(

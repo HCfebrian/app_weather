@@ -1,4 +1,6 @@
 
+import 'package:app_weather/data/data_source/local/weather_local_source.dart';
+import 'package:app_weather/data/data_source/local/weather_local_source_impl.dart';
 import 'package:app_weather/data/data_source/remote/remote_datasource_abst.dart';
 import 'package:app_weather/data/data_source/remote/remote_datasource_impl.dart';
 import 'package:app_weather/data/repository/repository_impl.dart';
@@ -24,11 +26,12 @@ void init(){
   sl.registerLazySingleton(() => WeatherUseCase(weatherRepo: sl(), networkInfo: sl()));
 
   //repo
-  sl.registerLazySingleton<WeatherRepoAbst>(() => WeatherRepoImpl(remoteData: sl()));
+  sl.registerLazySingleton<WeatherRepoAbst>(() => WeatherRepoImpl(remoteData: sl(), localSourceAbst: sl()));
   
   //dataSource
   sl.registerLazySingleton<WeatherRemoteDataAbst>(() => WeatherRemoteDataImpl(service: sl()));
   sl.registerLazySingleton<WeatherService>(() => WeatherService.create());
+  sl.registerLazySingleton<LocalSourceAbst>(() => LocalSourceImpl());
 
   //network
   sl.registerLazySingleton<NetworkInfo>(

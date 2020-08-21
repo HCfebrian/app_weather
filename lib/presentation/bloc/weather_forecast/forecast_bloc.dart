@@ -14,7 +14,7 @@ class ForecastBloc extends Bloc<ForecastEvent, ForecastState> {
 
   ForecastBloc({@required this.useCase})
       : assert(useCase != null),
-        super(ForecastInitial());
+        super(Empty());
 
   @override
   Stream<ForecastState> mapEventToState(
@@ -25,6 +25,12 @@ class ForecastBloc extends Bloc<ForecastEvent, ForecastState> {
       final failureOrForecast = await useCase.getForecast(event.cityName);
       yield failureOrForecast.fold(
               (failure) => ForecastError(), (forecast) => ForecastLoaded( forecastList: forecast));
+    }
+
+    if(event is GetSavedForecast){
+      yield ForecastLoading();
+      final forecast = useCase.getSavedForecast();
+      yield ForecastInitial(forecast);
     }
   }
 }
