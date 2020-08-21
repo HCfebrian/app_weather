@@ -1,6 +1,6 @@
 import 'package:app_weather/core/error/exception_handler.dart';
 import 'package:app_weather/core/error/failure.dart';
-import 'package:app_weather/data/data_source/remote_datasource_abst.dart';
+import 'package:app_weather/data/data_source/remote/remote_datasource_abst.dart';
 import 'package:app_weather/domain/repository.dart';
 import 'package:app_weather/domain/weather_entity.dart';
 import 'package:dartz/dartz.dart';

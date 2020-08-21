@@ -18,7 +18,6 @@ class WeatherUseCase{
 
   Future<Either<Failure, List<WeatherEntity>>> getForecast(String cityName) async{
     if(! await networkInfo.isConnected) return Left(NetworkFailure());
-
     return await weatherRepo.getForecast(cityName);
   }
 

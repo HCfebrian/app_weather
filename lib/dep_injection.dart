@@ -1,7 +1,6 @@
 
-import 'package:app_weather/data/data_source/remote_datasource_abst.dart';
-import 'package:app_weather/data/data_source/remote_datasource_impl.dart';
-import 'package:app_weather/data/data_source/services/weather_api_service.dart';
+import 'package:app_weather/data/data_source/remote/remote_datasource_abst.dart';
+import 'package:app_weather/data/data_source/remote/remote_datasource_impl.dart';
 import 'package:app_weather/data/repository/repository_impl.dart';
 import 'package:app_weather/domain/repository.dart';
 import 'package:app_weather/domain/usecase.dart';
@@ -11,6 +10,7 @@ import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/network/netword_info.dart';
+import 'data/data_source/remote/services/weather_api_service.dart';
 
 final sl = GetIt.instance;
 

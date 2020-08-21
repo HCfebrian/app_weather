@@ -1,4 +1,4 @@
-import 'package:app_weather/data/data_source/remote_datasource_abst.dart';
+import 'package:app_weather/data/data_source/remote/remote_datasource_abst.dart';
 import 'package:app_weather/data/repository/repository_impl.dart';
 import 'package:app_weather/domain/weather_entity.dart';
 import 'package:dartz/dartz.dart';

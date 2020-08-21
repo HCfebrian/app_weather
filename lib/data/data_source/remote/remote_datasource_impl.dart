@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:app_weather/core/error/exception.dart';
-import 'package:app_weather/data/data_source/remote_datasource_abst.dart';
-import 'package:app_weather/data/data_source/services/weather_api_service.dart';
+import 'package:app_weather/data/data_source/remote/remote_datasource_abst.dart';
+import 'package:app_weather/data/data_source/remote/services/weather_api_service.dart';
 import 'package:app_weather/data/model/weather_model.dart';
 import 'package:app_weather/domain/weather_entity.dart';
 import 'package:meta/meta.dart';
