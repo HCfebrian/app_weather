@@ -24,3 +24,8 @@ class TooMuchTrafficFailure extends Failure {
   TooMuchTrafficFailure(int code)
       : super(code, "Too Much Traffic Or Data Request at The Moment");
 }
+
+class NetworkFailure extends Failure{
+  NetworkFailure() : super(0, "No Internet Connection");
+
+}

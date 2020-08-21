@@ -1,4 +1,3 @@
-import 'package:app_weather/data/model/weather_model.dart';
 import 'package:app_weather/domain/weather_entity.dart';
 
 abstract class WeatherRemoteDataAbst {

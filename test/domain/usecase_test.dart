@@ -1,3 +1,4 @@
+import 'package:app_weather/core/network/netword_info.dart';
 import 'package:app_weather/domain/repository.dart';
 import 'package:app_weather/domain/usecase.dart';
 import 'package:app_weather/domain/weather_entity.dart';
@@ -6,13 +7,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 class MockWeatherRepo extends Mock implements WeatherRepoAbst {}
+class MockNetworkInfo extends Mock implements NetworkInfoImpl{}
 
 void main() {
   WeatherUseCase useCase;
   MockWeatherRepo mockRepo;
+  MockNetworkInfo mockNetworkInfo;
+
   setUp(() {
+    mockNetworkInfo = MockNetworkInfo();
     mockRepo = MockWeatherRepo();
-    useCase = WeatherUseCase(weatherRepo: mockRepo);
+    useCase = WeatherUseCase(weatherRepo: mockRepo, networkInfo: mockNetworkInfo);
   });
 
   final tCityName = "Magelang";

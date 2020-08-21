@@ -24,7 +24,6 @@ void main(){
       visibility: 3000,
       windSpeed: 222,
       dt: null);
-  final tWeatherList = [tWeather, tWeather];
 
   group("test remote data", (){
     test(

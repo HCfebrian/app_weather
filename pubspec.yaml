@@ -27,6 +27,8 @@ dependencies:
   dartz: ^0.9.1
   data_connection_checker: ^0.3.4
   get_it: ^4.0.2
+  hive: ^1.4.4
+
   flutter:
     sdk: flutter
 
