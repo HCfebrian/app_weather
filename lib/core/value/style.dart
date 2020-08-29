@@ -38,6 +38,12 @@ class AppStyle {
       fontSize: 22,
       fontWeight: FontWeight.bold,
   );
+
+  static const TextStyle textBlackSemiBold52 = TextStyle(
+    color: AppColors.primaryText,
+    fontSize: 52,
+    fontWeight: FontWeight.bold,
+  );
   static const TextStyle textBlackSemiBold14 = TextStyle(
       color: AppColors.primaryText,
       fontSize: 14,

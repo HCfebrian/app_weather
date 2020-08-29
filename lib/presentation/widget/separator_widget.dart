@@ -17,7 +17,7 @@ class SeparatorWidget extends StatelessWidget {
       Center(
           child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Text("Cuaca 5 Hari Kedepan"))),
+              child: Text("Weather Forecast"))),
       Expanded(
           child: Container(
             height: 2,
