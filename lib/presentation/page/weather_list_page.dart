@@ -8,6 +8,7 @@ class WeatherList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         margin: EdgeInsets.symmetric(vertical: 20,horizontal: 15),
         child: Column(
