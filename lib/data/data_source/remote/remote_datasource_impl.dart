@@ -19,6 +19,7 @@ class WeatherRemoteDataImpl extends WeatherRemoteDataAbst {
   Future<List<WeatherEntity>> getForecast(String cityName) async {
     final forecast = await service.getForecast(cityName);
 
+
     if (forecast.statusCode != 200) {
       throw GetDataException(forecast.statusCode, "Unable to get data weather");
     }

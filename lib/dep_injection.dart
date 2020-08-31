@@ -30,8 +30,9 @@ void init(){
   
   //dataSource
   sl.registerLazySingleton<WeatherRemoteDataAbst>(() => WeatherRemoteDataImpl(service: sl()));
-  sl.registerLazySingleton<WeatherService>(() => WeatherService.create());
   sl.registerLazySingleton<LocalSourceAbst>(() => LocalSourceImpl());
+
+  sl.registerLazySingleton<WeatherService>(() => WeatherService.create());
 
   //network
   sl.registerLazySingleton<NetworkInfo>(
